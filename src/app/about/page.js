@@ -9,8 +9,8 @@ const About = () => {
           <h2 className="text-4xl font-bold mb-8">About Our Web App</h2>
           <p className="text-lg mb-8">
             Our web app is dedicated to providing information on heroes and
-            displaying player stats for your favorite games. Whether you're into
-            Overwatch, League of Legends, or any other popular game, our
+            displaying player stats for your favorite games. Whether you&aposre
+            into Overwatch, League of Legends, or any other popular game, our
             platform has you covered.
           </p>
           <p className="text-lg mb-8">
@@ -32,7 +32,6 @@ const About = () => {
               width={400}
               height={200}
             />
-            {/* You can add more images here */}
           </div>
         </div>
       </div>
