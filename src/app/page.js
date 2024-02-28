@@ -84,7 +84,7 @@ export default function Home() {
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Overwatch 2 characters&apos abilities and backstories
+            Explore the Overwatch 2 characters&#39; abilities and backstories
           </p>
         </Link>
         <Link
