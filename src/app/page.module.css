@@ -40,3 +40,9 @@
 .heroes:hover {
   transform: scale(1.4);
 }
+
+.footer {
+  height: 8rem;
+  display: flex;
+  align-items: flex-end;
+}

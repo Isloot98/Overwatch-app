@@ -19,6 +19,15 @@
   justify-content: center;
   text-align: center;
   text-decoration: none;
+  border: 2px solid #10e6f1;
+  border-radius: 1rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.gridItem:hover {
+  transform: scale(1.5);
+  box-shadow: 0 0 10px #10e6f1;
+  background-color: #10e6f1;
 }
 
 .navDiv {

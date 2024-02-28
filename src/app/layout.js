@@ -3,13 +3,14 @@ import "./globals.css";
 import Link from "next/link";
 import styles from "./page.module.css";
 const inter = Inter({ subsets: ["latin"] });
+import Image from "next/image";
 
 export const metadata = {
   title: "Overwatch stats App",
   description: "An app that shows hero and player details from overwatch 2",
   openGraph: {
-    title: "Next.js Blog",
-    description: "A simple blog built with Next.js",
+    title: "Overwatch stats App",
+    description: "An app that shows hero and player details from overwatch 2",
     type: "website",
     url: "https://next-comments-postgres.vercel.app/",
     image:
@@ -33,12 +34,27 @@ export default function RootLayout({ children }) {
               <li className={styles.heroes}>
                 <Link href="/heroes/ana">Heroes</Link>
               </li>
+              <li className={styles.heroes}>
+                <Link href="/posts">Community</Link>
+              </li>
             </ul>
           </nav>
         </header>
         {children}
-        <footer>
-          <p>This is my footer</p>
+        <footer className={styles.footer}>
+          <a
+            href="https://github.com/Isloot98"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/github.svg"
+              alt="link to my github repo"
+              width={30}
+              height={30}
+              className="dark:invert mb-4 ml-4"
+            />
+          </a>
         </footer>
       </body>
     </html>
