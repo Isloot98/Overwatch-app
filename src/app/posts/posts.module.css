@@ -11,7 +11,7 @@
 
 .posts {
   margin-bottom: 20px;
-  border: 2px solid #03e9f4;
+  border: 2px outset #03e9f4;
   padding: 20px;
   border-radius: 1rem;
   width: 80%;
@@ -289,7 +289,7 @@
 .createPost {
   margin-top: 1rem;
   color: black;
-  border: solid 2px #03e9f4;
+  border: outset 2px #03e9f4;
   border-radius: 1rem;
   margin-bottom: 1rem;
   font-family: "Kode Mono", monospace;

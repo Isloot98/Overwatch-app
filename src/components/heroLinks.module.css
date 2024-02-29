@@ -19,7 +19,7 @@
   justify-content: center;
   text-align: center;
   text-decoration: none;
-  border: 2px solid #10e6f1;
+  border: 2px outset #10e6f1;
   border-radius: 1rem;
   transition: all 0.5s ease-in-out;
 }
@@ -27,7 +27,7 @@
 .gridItem:hover {
   transform: scale(1.5);
   box-shadow: 0 0 10px #10e6f1;
-  background-color: #10e6f1;
+  background: linear-gradient(120deg, #3498db, #8e44ad);
 }
 
 .navDiv {

@@ -10,7 +10,7 @@ export default function Home() {
       >
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
           <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
+            className={`${styles.isaSvg} pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0`}
             href="https://github.com/Isloot98"
             target="_blank"
             rel="noopener noreferrer"
@@ -45,7 +45,6 @@ export default function Home() {
           href="/posts"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
           target="_blank"
-          rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
             Community{" "}
@@ -61,7 +60,6 @@ export default function Home() {
           href="/about"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
           target="_blank"
-          rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
             About{" "}
@@ -77,7 +75,6 @@ export default function Home() {
           href="/heroes/ana"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
           target="_blank"
-          rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
             Heroes{" "}
@@ -90,7 +87,7 @@ export default function Home() {
           </p>
         </Link>
         <Link
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href="/players"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
           target="_blank"
           rel="noopener noreferrer"
