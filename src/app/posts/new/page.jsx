@@ -1,4 +1,3 @@
-// /app/posts/new/page.jsx
 import { sql } from "@vercel/postgres";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";

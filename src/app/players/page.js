@@ -32,25 +32,50 @@ const SearchPlayers = () => {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={`${styles.form} text-black `}>
-        <label className={styles.label} htmlFor="query">
-          Search for a player
-        </label>
-        <input className={styles.input} id="query" name="query" type="text" />
-        <SubmitButton />
-      </form>
+      <div className={styles.formContainer}>
+        <form onSubmit={handleSubmit} className={`${styles.form} text-black `}>
+          <label className={styles.label} htmlFor="query">
+            Search for a player
+          </label>
+          <input className={styles.input} id="query" name="query" type="text" />
+          <SubmitButton className={styles.button} />
+          <br></br>
+          <p>
+            You can search for anything and it will find any player that
+            matches.
+            <br></br>
+            Search `beffreyjezos#2976` to find my account
+          </p>
+        </form>
+      </div>
       <div className={styles.searchResults}>
-        {loading && <p>Loading...</p>}
+        {loading && (
+          <div className={styles.loading}>
+            <p>Loading...</p>
+          </div>
+        )}
         {error && <p>{error}</p>}
         {!loading &&
           searchResult &&
           Array.isArray(searchResult) &&
           searchResult.map((player) => (
             <div className={styles.searchResult} key={player.player_id}>
-              <Link href={`/players/${player.player_id}`}>
-                <img src={player.avatar} alt={player.name} />
-                {player.name} <img src={player.namecard} alt={player.name} />
-                <p>{player.title}</p>
+              <Link
+                href={`/players/${player.player_id}`}
+                className={styles.playercard}
+              >
+                <img
+                  src={player.avatar}
+                  alt={player.name}
+                  className={styles.avatar}
+                />
+                <p className={styles.playerName}>{player.name}</p>
+                <img
+                  src={player.namecard}
+                  alt={player.name}
+                  className={styles.namecard}
+                />
+                <p className={styles.playerTitle}>{player.title}</p>
               </Link>
             </div>
           ))}

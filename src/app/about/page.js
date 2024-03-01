@@ -55,13 +55,6 @@ const About = () => {
               width={450}
               height={300}
             />
-            <img
-              className="rounded-lg m-8"
-              src="https://pbs.twimg.com/media/FAK7haGUUAEasIS.png"
-              alt="Player Stats"
-              width={400}
-              height={200}
-            />
           </div>
         </div>
       </div>

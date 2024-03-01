@@ -16,10 +16,10 @@ const PlayerDetails = () => {
         const playerId = pathname.split("/").pop();
 
         const result = await playerDetailsApi(playerId);
-        console.log("API Result:", result); // Log the entire API response
+        console.log("API Result:", result);
         if (result && result.summary && result.stats) {
           setPlayerDetails(result.summary);
-          setStats(result.stats); // Set the stats separately
+          setStats(result.stats);
         } else {
           setError("Player details not found");
         }
@@ -37,7 +37,11 @@ const PlayerDetails = () => {
   console.log(playerDetails);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className={styles.loading}>
+        <p>Loading...</p>
+      </div>
+    );
   }
 
   if (error) {
@@ -48,149 +52,267 @@ const PlayerDetails = () => {
     <div className={styles.container}>
       {playerDetails && (
         <div className={styles.playerDetails}>
-          {/* Display player summary */}
-          <img src={playerDetails.avatar} alt={playerDetails.username} />
-          <h2>{playerDetails.username}</h2>
-          <img src={playerDetails.namecard} alt={playerDetails.username} />
-          <p>{playerDetails.title}</p>
-
-          {/* Endorsement */}
+          <div className={styles.playerCard}>
+            <img
+              src={playerDetails.avatar}
+              alt={playerDetails.username}
+              className={styles.avatar}
+            />
+            <p className={styles.playerName}>{playerDetails.username}</p>
+            <img
+              src={playerDetails.namecard}
+              alt={playerDetails.username}
+              className={styles.namecard}
+            />
+            <p className={styles.playerTitle}>{playerDetails.title}</p>
+          </div>
           <div className={styles.endorsement}>
-            <h3>Endorsement</h3>
-            <p>Level: {playerDetails.endorsement.level}</p>
+            <h2>Endorsement Level:</h2>
+
             <img
               src={playerDetails.endorsement.frame}
               alt="Endorsement Frame"
               className={styles.endorsement}
             />
           </div>
-
-          {/* Competitive */}
           <div className={styles.competitive}>
-            <h3>Competitive</h3>
             {playerDetails.competitive && playerDetails.competitive.console && (
               <div>
-                {/* Tank */}
                 {playerDetails.competitive.console.tank && (
                   <div>
-                    <p>
-                      Tank Division:{" "}
-                      {playerDetails.competitive.console.tank.division}
-                    </p>
-                    <p>
-                      Tank Tier: {playerDetails.competitive.console.tank.tier}
-                    </p>
-                    <img
-                      src={playerDetails.competitive.console.tank.role_icon}
-                      alt="Tank Role Icon"
-                      className={styles.tankRole}
-                    />
-                    <img
-                      src={playerDetails.competitive.console.tank.rank_icon}
-                      alt="Tank Rank Icon"
-                      className={styles.tankRank}
-                    />
-                    <img
-                      src={playerDetails.competitive.console.tank.tier_icon}
-                      alt="Tank Tier Icon"
-                      className={styles.tankTier}
-                    />
+                    <div className={styles.roleDiv}>
+                      <h2>Role:</h2>
+                      <img
+                        src={playerDetails.competitive.console.tank.role_icon}
+                        alt="Tank Role Icon"
+                        className={styles.Role}
+                      />
+                    </div>
+                    <div className={styles.rankDiv}>
+                      <h2>Tank Division:</h2>
+                      <img
+                        src={playerDetails.competitive.console.tank.rank_icon}
+                        alt="Tank Rank Icon"
+                        className={styles.Rank}
+                      />
+                    </div>
+
+                    <div className={styles.tierDiv}>
+                      <h2>Tank Tier:</h2>
+                      <img
+                        src={playerDetails.competitive.console.tank.tier_icon}
+                        alt="Tank Tier Icon"
+                        className={styles.Tier}
+                      />
+                    </div>
                   </div>
                 )}
-                {/* Damage */}
                 {playerDetails.competitive.console.damage && (
                   <div>
                     <p>
-                      Damage Division:{" "}
+                      Damage Division:
                       {playerDetails.competitive.console.damage.division}
                     </p>
                     <p>
-                      Damage Tier:{" "}
+                      Damage Tier:
                       {playerDetails.competitive.console.damage.tier}
                     </p>
                     <img
                       src={playerDetails.competitive.console.damage.role_icon}
-                      alt="Damage Role Icon"
-                      className={styles.damageRole}
+                      alt="dps Role Icon"
+                      className={styles.Role}
                     />
-                    {/* Add additional fields for Damage role */}
+                    <img
+                      src={playerDetails.competitive.console.damage.rank_icon}
+                      alt="dps Rank Icon"
+                      className={styles.Rank}
+                    />
+                    <img
+                      src={playerDetails.competitive.console.damage.tier_icon}
+                      alt="dps Tier Icon"
+                      className={styles.Tier}
+                    />
                   </div>
                 )}
-                {/* Support */}
                 {playerDetails.competitive.console.support && (
                   <div>
                     <p>
-                      Support Division:{" "}
+                      Support Division:
                       {playerDetails.competitive.console.support.division}
                     </p>
                     <p>
-                      Support Tier:{" "}
+                      Support Tier:
                       {playerDetails.competitive.console.support.tier}
                     </p>
                     <img
                       src={playerDetails.competitive.console.support.role_icon}
                       alt="Support Role Icon"
-                      className={styles.supportRole}
+                      className={styles.Role}
                     />
-                    {/* Add additional fields for Support role */}
+                    <img
+                      src={playerDetails.competitive.console.support.rank_icon}
+                      alt="Support Rank Icon"
+                      className={styles.Rank}
+                    />
+                    <img
+                      src={playerDetails.competitive.console.support.tier_icon}
+                      alt="Support Tier Icon"
+                      className={styles.Tier}
+                    />
                   </div>
                 )}
               </div>
             )}
           </div>
-
-          {/* Stats */}
           <div className={styles.stats}>
             <h3>Stats</h3>
             {stats && (
               <div>
                 {stats.pc || stats.console ? (
                   <div>
-                    {/* Competitive stats */}
-                    {stats.console && stats.console.competitive && (
-                      <div>
-                        <h4>Competitive</h4>
-                        <ul>
-                          {stats.console.competitive.heroes_comparisons.time_played.values.map(
-                            (hero) => (
-                              <li key={hero.hero}>
-                                {hero.hero}: {hero.value} minutes
-                              </li>
-                            )
+                    <div className={styles.stats2}>
+                      {stats?.console?.competitive && (
+                        <div className={styles.competitiveStats}>
+                          <h3>Competitive Stats</h3>
+                          <h2>Time Played</h2>
+
+                          <div className={styles.timePlayed}>
+                            <ul className={styles.gridContainer}>
+                              {stats.console.competitive.heroes_comparisons.time_played.values.map(
+                                (hero) => (
+                                  <div
+                                    key={hero.hero}
+                                    className={styles.gridItem}
+                                  >
+                                    <h3>{hero.hero}</h3> {hero.value} minutes
+                                  </div>
+                                )
+                              )}
+                            </ul>
+                          </div>
+
+                          <div className={styles.gamesWon}>
+                            <h2>Games Won</h2>
+
+                            <ul>
+                              {stats.console.competitive.heroes_comparisons.games_won.values.map(
+                                (hero) => (
+                                  <div
+                                    key={hero.hero}
+                                    className={styles.gridItem}
+                                  >
+                                    <h3>{hero.hero}</h3> {hero.value}
+                                  </div>
+                                )
+                              )}
+                            </ul>
+                          </div>
+
+                          {stats?.console?.competitive?.career_stats && (
+                            <div className={styles.career}>
+                              <div classname={styles.best}>
+                                {stats.console.competitive.career_stats[
+                                  "best"
+                                ] && (
+                                  <div>
+                                    <h4>Best</h4>
+                                    <ul>
+                                      {Object.entries(
+                                        stats.console.competitive.career_stats[
+                                          "best"
+                                        ]
+                                      ).map(([key, value]) => (
+                                        <div
+                                          key={key}
+                                          className={styles.gridItem}
+                                        >
+                                          {value.label}: {value.value}
+                                        </div>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                              </div>
+
+                              <div className={styles.best}>
+                                {stats.console.competitive.career_stats[
+                                  "average"
+                                ] && (
+                                  <div>
+                                    <h4>Average</h4>
+                                    <ul>
+                                      {Object.entries(
+                                        stats.console.competitive.career_stats[
+                                          "average"
+                                        ]
+                                      ).map(([key, value]) => (
+                                        <div
+                                          key={key}
+                                          className={styles.gridItem}
+                                        >
+                                          {value.label}: {value.value}
+                                        </div>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                              </div>
+
+                              <div className={styles.best}>
+                                {stats.console.competitive.career_stats[
+                                  "game"
+                                ] && (
+                                  <div>
+                                    <h2>Game</h2>
+                                    <ul>
+                                      {Object.entries(
+                                        stats.console.competitive.career_stats[
+                                          "game"
+                                        ]
+                                      ).map(([key, value]) => (
+                                        <div
+                                          key={key}
+                                          className={styles.gridItem}
+                                        >
+                                          {value.label}: {value.value}
+                                        </div>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                              </div>
+
+                              <div className={styles.best}>
+                                {stats.console.competitive.career_stats[
+                                  "all-heroes"
+                                ] && (
+                                  <div>
+                                    <h2>Career Stats for All Heroes</h2>
+                                    {stats.console.competitive.career_stats[
+                                      "all-heroes"
+                                    ].map((heroStats, index) => (
+                                      <div key={index}>
+                                        <h5>{heroStats.label}</h5>
+                                        <ul>
+                                          {heroStats.stats.map((stat) => (
+                                            <div
+                                              key={stat.key}
+                                              className={styles.gridItem}
+                                            >
+                                              {stat.label}: {stat.value}
+                                            </div>
+                                          ))}
+                                        </ul>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
                           )}
-                        </ul>
-                      </div>
-                    )}
-                    {/* Damage stats */}
-                    {stats.console && stats.console.damage && (
-                      <div>
-                        <h4>Damage</h4>
-                        <ul>
-                          {stats.console.damage.heroes_comparisons.time_played.values.map(
-                            (hero) => (
-                              <li key={hero.hero}>
-                                {hero.hero}: {hero.value} minutes
-                              </li>
-                            )
-                          )}
-                        </ul>
-                      </div>
-                    )}
-                    {/* Support stats */}
-                    {stats.console && stats.console.support && (
-                      <div>
-                        <h4>Support</h4>
-                        <ul>
-                          {stats.console.support.heroes_comparisons.time_played.values.map(
-                            (hero) => (
-                              <li key={hero.hero}>
-                                {hero.hero}: {hero.value} minutes
-                              </li>
-                            )
-                          )}
-                        </ul>
-                      </div>
-                    )}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 ) : (
                   <p>No stats available</p>

@@ -1,11 +1,170 @@
 .container {
-  height: 100vh; /* Set container height to cover viewport */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.formContainer {
+  margin-bottom: 20px;
+  width: 50%;
+  max-width: 600px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  background: linear-gradient(120deg, #3498db, #8e44ad);
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem;
 }
 
-.fixedResults {
-  position: fixed; /* Fix the position of the search results */
-  top: 0; /* Position at the top of the viewport */
-  left: 0; /* Position at the left of the viewport */
-  width: 100%; /* Set width to cover the entire viewport */
-  overflow-y: auto; /* Add vertical scrollbar if content overflows */
+@media screen and (max-width: 1000px) {
+  .formContainer {
+    width: 90%;
+  }
+}
+
+.formContainer h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.label {
+  margin-bottom: 5px;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.input {
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.input:focus ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+}
+
+.button:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+  cursor: pointer;
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.playercard {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.avatar {
+  width: 10rem;
+  height: 10rem;
+}
+
+.namecard {
+  width: 70%;
+  height: 10rem;
+}
+
+.playerTitle {
+  position: absolute;
+  bottom: 2%;
+  left: 28%;
+  transform: translate(-50%, -50%);
+  color: black;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+}
+.playerName {
+  position: absolute;
+  background-color: black;
+  width: 10rem;
+}
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #3498db, #8e44ad);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  font-weight: bolder;
+}
+
+.loading p {
+  animation: fadeInOut 2s infinite;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.searchResults {
+  margin-top: 3rem;
 }

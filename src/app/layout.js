@@ -36,9 +36,9 @@ export default function RootLayout({ children }) {
               </li>
               <li className={styles.heroes}>
                 <Link href="/posts">Community</Link>
-                <li className={styles.heroes}>
-                  <Link href="/players">Players</Link>
-                </li>
+              </li>
+              <li className={styles.heroes}>
+                <Link href="/players">Players</Link>
               </li>
             </ul>
           </nav>
