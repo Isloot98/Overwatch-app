@@ -81,7 +81,7 @@ const PlayerDetails = () => {
                 {playerDetails.competitive.console.tank && (
                   <div>
                     <div className={styles.roleDiv}>
-                      <h2>Role:</h2>
+                      <h2>Role: Tank</h2>
                       <img
                         src={playerDetails.competitive.console.tank.role_icon}
                         alt="Tank Role Icon"
@@ -89,7 +89,10 @@ const PlayerDetails = () => {
                       />
                     </div>
                     <div className={styles.rankDiv}>
-                      <h2>Tank Division:</h2>
+                      <h2>
+                        Tank Division:
+                        {playerDetails.competitive.console.tank.division}
+                      </h2>
                       <img
                         src={playerDetails.competitive.console.tank.rank_icon}
                         alt="Tank Rank Icon"
@@ -109,56 +112,72 @@ const PlayerDetails = () => {
                 )}
                 {playerDetails.competitive.console.damage && (
                   <div>
-                    <p>
-                      Damage Division:
-                      {playerDetails.competitive.console.damage.division}
-                    </p>
-                    <p>
-                      Damage Tier:
-                      {playerDetails.competitive.console.damage.tier}
-                    </p>
-                    <img
-                      src={playerDetails.competitive.console.damage.role_icon}
-                      alt="dps Role Icon"
-                      className={styles.Role}
-                    />
-                    <img
-                      src={playerDetails.competitive.console.damage.rank_icon}
-                      alt="dps Rank Icon"
-                      className={styles.Rank}
-                    />
-                    <img
-                      src={playerDetails.competitive.console.damage.tier_icon}
-                      alt="dps Tier Icon"
-                      className={styles.Tier}
-                    />
+                    <div className={styles.roleDiv}>
+                      <h2>Role: DPS</h2>
+                      <img
+                        src={playerDetails.competitive.console.damage.role_icon}
+                        alt="damage Role Icon"
+                        className={styles.Role}
+                      />
+                    </div>
+                    <div className={styles.rankDiv}>
+                      <h2>
+                        DPS Division:
+                        {playerDetails.competitive.console.damage.division}
+                      </h2>
+                      <img
+                        src={playerDetails.competitive.console.damage.rank_icon}
+                        alt="damage Rank Icon"
+                        className={styles.Rank}
+                      />
+                    </div>
+
+                    <div className={styles.tierDiv}>
+                      <h2>DPS Tier:</h2>
+                      <img
+                        src={playerDetails.competitive.console.damage.tier_icon}
+                        alt="damage Tier Icon"
+                        className={styles.Tier}
+                      />
+                    </div>
                   </div>
                 )}
                 {playerDetails.competitive.console.support && (
                   <div>
-                    <p>
-                      Support Division:
-                      {playerDetails.competitive.console.support.division}
-                    </p>
-                    <p>
-                      Support Tier:
-                      {playerDetails.competitive.console.support.tier}
-                    </p>
-                    <img
-                      src={playerDetails.competitive.console.support.role_icon}
-                      alt="Support Role Icon"
-                      className={styles.Role}
-                    />
-                    <img
-                      src={playerDetails.competitive.console.support.rank_icon}
-                      alt="Support Rank Icon"
-                      className={styles.Rank}
-                    />
-                    <img
-                      src={playerDetails.competitive.console.support.tier_icon}
-                      alt="Support Tier Icon"
-                      className={styles.Tier}
-                    />
+                    <div className={styles.roleDiv}>
+                      <h2>Role: Support</h2>
+                      <img
+                        src={
+                          playerDetails.competitive.console.support.role_icon
+                        }
+                        alt="support Role Icon"
+                        className={styles.Role}
+                      />
+                    </div>
+                    <div className={styles.rankDiv}>
+                      <h2>
+                        Support Division:
+                        {playerDetails.competitive.console.support.division}
+                      </h2>
+                      <img
+                        src={
+                          playerDetails.competitive.console.support.rank_icon
+                        }
+                        alt="support Rank Icon"
+                        className={styles.Rank}
+                      />
+                    </div>
+
+                    <div className={styles.tierDiv}>
+                      <h2>Support Tier:</h2>
+                      <img
+                        src={
+                          playerDetails.competitive.console.support.tier_icon
+                        }
+                        alt="support Tier Icon"
+                        className={styles.Tier}
+                      />
+                    </div>
                   </div>
                 )}
               </div>
