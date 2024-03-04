@@ -4,6 +4,10 @@ import { revalidatePath } from "next/cache";
 import styles from "./posts.module.css";
 import Link from "next/link";
 import SubmitButton from "@/components/submitButton";
+import DeleteButton from "@/components/DeleteButton";
+import EditPostComp from "@/components/editPost";
+import ToggleEditComponent from "@/components/ShowEditForm";
+
 const Posts = async () => {
   const result = await sql`
       SELECT
@@ -39,7 +43,7 @@ const Posts = async () => {
 
   const postsData = Object.values(postsWithComments);
 
-  async function handleSaveComment(formData) {
+  const handleSaveComment = async (formData) => {
     "use server";
     console.log("Saving post to the database...");
 
@@ -52,7 +56,7 @@ const Posts = async () => {
     console.log("Post saved!");
     revalidatePath("/posts");
     redirect("/posts");
-  }
+  };
 
   return (
     <div className={styles.parent}>
@@ -68,6 +72,10 @@ const Posts = async () => {
             <p>{post.username}</p>
             <h2>{post.title}</h2>
             <p>{post.textcontent}</p>
+            <DeleteButton id={post.id} />
+            <ToggleEditComponent>
+              <EditPostComp id={post.id} />
+            </ToggleEditComponent>
           </div>
           <div className={styles.commentSection}>
             <h1>Comments</h1>
